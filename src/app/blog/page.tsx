@@ -65,7 +65,7 @@ export default function Blog(){
 </li>
 
 <li>
-<Link href={"/"}>  <p className="block transition hover:text-gray-700"> Blog </p></Link>
+<Link href={"/blog"}>  <p className="block transition hover:text-gray-700"> Blog </p></Link>
 </li>
 </ol>
 </nav>

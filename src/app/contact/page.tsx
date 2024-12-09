@@ -64,7 +64,7 @@ export default function Contact() {
     </li>
 
     <li>
-    <Link href={"/chart"}>  <p className="block transition hover:text-gray-700"> Contact </p></Link>
+    <Link href={"/contact"}>  <p className="block transition hover:text-gray-700"> Contact </p></Link>
     </li>
   </ol>
 </nav>

@@ -5,11 +5,12 @@ import Link from 'next/link'
 import logo from "../../public/logo.png"
 import Image from 'next/image'
 import sofa from "../../public/Asgaard sofa 1.png"
+import Navbar from '@/components/header'
 
 export default function Chart() {
   return (
     <div>
-      <Header/>
+      <Navbar/>
       
       <div>
       <div className="relative py-16 font-[sans-serif]">

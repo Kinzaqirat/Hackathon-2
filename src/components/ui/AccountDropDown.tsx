@@ -3,6 +3,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { RxCrossCircled } from "react-icons/rx";
 import { IoStarOutline } from "react-icons/io5";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { FaCheck } from "react-icons/fa6";
 
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator,DropdownMenuTrigger,} from "@/components/ui/dropdown-menu"
@@ -33,8 +34,8 @@ export default function AccountDropDown() {
    
     <DropdownMenuItem>
         <div className="flex justify-evenly gap-3">
-            <RxCrossCircled className=" relative top-1"/>
-            <span>My Cancelation</span>
+        <FaCheck  className=" relative top-1"/>
+           <Link href={"/check"}> <span>Checkout</span></Link>
         </div>
     </DropdownMenuItem>
     <DropdownMenuItem>

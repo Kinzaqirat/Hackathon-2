@@ -138,7 +138,7 @@ export default function Home2() {
   </h1>
   <br />
   <br />
-  <button className="montserrat bg-transparent underline text-[30px] h-[50px] max-sm:h-[30px] max-sm:text-[15px]">Shop now</button>
+  <button  className="montserrat bg-transparent underline text-[30px] h-[50px] max-sm:h-[30px] max-sm:text-[15px]">Shop now</button>
 </div>
 <div className="max-sm:w-[250px] h-[100px] max-sm:mr-[50px]">
 

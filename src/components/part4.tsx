@@ -1,6 +1,7 @@
 import React from 'react'
 import sofa from "../public/Asgaard sofa 1.png"
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Part4() {
   return (
@@ -17,7 +18,9 @@ export default function Part4() {
   </h1>
   <br />
   <br />
-  <button className="montserrat bg-transparent border border-black w-[150px] text-[20px] h-[50px] ">Order now</button>
+<Link href={
+  '/product-detaile'
+}>  <button className="montserrat bg-transparent border border-black w-[150px] text-[20px] h-[50px] ">Order now</button></Link>
 </div>
 
 </div>

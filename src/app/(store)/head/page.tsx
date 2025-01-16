@@ -9,11 +9,11 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { GoHeart } from "react-icons/go";
 import { BsCart } from "react-icons/bs";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import AccountDropDown from "../../components/ui/AccountDropDown";
+import AccountDropDown from "../../../components/ui/AccountDropDown";
 import Image from "next/image";
-import seater from "../../public/seater.png"
+import seater from "../../../public/seater.png"
 import Second from "@/components/second";
-import Card1 from "../../components/card1"
+import Card1 from "../../../components/card1"
 import Part4 from "@/components/part4";
 import Blog from "@/components/blog";
 import Part5 from "@/components/part5";

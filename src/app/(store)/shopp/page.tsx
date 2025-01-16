@@ -123,6 +123,7 @@ export default function ShopPgae() {
   
     <p className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center'>{data.text}</p>
     <p className='montserrat pl-7 font-extrabold text-[30px] max-sm:pl-16 max-sm:text-[25px]'>{data.price}</p>
+    <button>Add to cart</button>
 </div> 
 ))}
   </div>

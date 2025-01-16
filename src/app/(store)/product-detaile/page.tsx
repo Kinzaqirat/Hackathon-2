@@ -1,11 +1,11 @@
 import React from 'react'
 import  Navbar from '@/components/header'
 import Image from 'next/image'
-import sofa1 from "../../public/Asgaard sofa 1.png"
-import sofa2 from "../../public/product1.png"
-import sofa3 from "../../public/product2.png"
-import sofa4 from "../../public/product3.png"
-import sofa5 from "../../public/product4.png"
+import sofa1 from "../../../public/Asgaard sofa 1.png"
+import sofa2 from "../../../public/product1.png"
+import sofa3 from "../../../public/product2.png"
+import sofa4 from "../../../public/product3.png"
+import sofa5 from "../../../public/product4.png"
 
 export default function Product_detaile() {
   return (
@@ -166,9 +166,22 @@ export default function Product_detaile() {
 
                    
 
-                    <div className="flex flex-wrap gap-4"> 
-                        <button type="button" className="min-w-[200px] px-4 py-3 text-black montserrat text-sm border border-black rounded-xl">Add to Cart</button>
-                
+                    <div className="flex flex-wrap gap-4  snipcart-add-item"> 
+                        {/* <button type="button" className="min-w-[200px] px-4 py-3 text-black montserrat text-sm border border-black rounded-xl snipcart-add-item"
+                        data-item-id="324"
+                        data-item-price="250,000.00"
+                        data-item-description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum"
+                          data-item-url="www.google.com"
+                        data-item-image="/Asgaard sofa 1.png"
+                        data-item-name="Asgraad Sofa"> Add to Cart</button> */}
+              <button className="snipcart-add-item"
+  data-item-id="mnbbb"
+  data-item-price="22"
+  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+  data-item-image={sofa1}
+  data-item-name="jhgh">
+  Add to cart
+</button>
                     </div>
                     <br />
                     <br />

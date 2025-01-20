@@ -2,6 +2,7 @@ import Image from "next/image";
 import Home2 from "./(store)/head/page";
 import Footer from "@/components/footer";
 import Script from "next/script";
+import Part4 from "@/components/ui/part4";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
 
 
     <Home2/>
+  
     <Footer/>
   </div>
   );

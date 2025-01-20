@@ -1,4 +1,4 @@
-import React from 'react'
+
 import  Navbar from '@/components/header'
 import Image from 'next/image'
 import sofa1 from "../../../public/Asgaard sofa 1.png"
@@ -7,7 +7,7 @@ import sofa3 from "../../../public/product2.png"
 import sofa4 from "../../../public/product3.png"
 import sofa5 from "../../../public/product4.png"
 
-export default function Product_detaile() {
+export default function productDetail({products}:any) {
   return (
     <div>
       <Navbar/>

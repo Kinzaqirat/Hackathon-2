@@ -6,54 +6,84 @@ import  sofa2 from "../public/break.png"
 
 import { ImageConfigContext } from 'next/dist/shared/lib/image-config-context.shared-runtime'
 import Image from 'next/image'
+import { SanityClient } from '@/sanity/sanity.client'
+import { groq } from 'next-sanity'
+import Link from 'next/link'
 
-export default function  Card1() {
+export default async function  Card1() {
 
-let Data2 =[
-    {
-    image :chair , text :"Trenton modular sofa_3" , price:"RS. 25,000.00"
-    },
-    {image:chairtable, text :"Granite dining table with dining chair" ,  price:"RS. 25,000.00"},
-    {image:outdoor, text :"Outdoor bar table and stole" ,  price:"RS. 25,000.00"},
-    {image:sofa2, text :"Plain console with teak mirror" ,  price:"RS. 25,000.00"}
-]
+  let Data = await SanityClient.fetch(groq `*[_type=="product"][0..4]
+    `)
+
+
+
+
 
   return (
     <div>
-        <div className=' grid grid-cols-4 pl-7 md:grid max-sm:grid-cols-1 max-sm:pl-20  '>
+     
+      <div>
+     
+    <div className='grid grid-cols-3 pl-[300px] py-12 max-sm:grid-cols-1 max-sm:pl-[1px]   '>
+    {Data.map((items:any)=>(
+<Link href={`product/${items.slug.current}`} >
 
-{Data2.map((data)=>(
-    <div>
-    <Image src={data.image} alt='' className='w-[240px] h-[240px] max-sm:h-[300px]'></Image>
+<div className=''>
+
+
+    <div className='w-[300px] '>
+<div className='rounded-xl w-[300px] h-[300px] py-8'>
+<img src={items.imagePath} alt='' className='w-[340px] h-[340px] max-sm:ml-11 rounded-xl '></img>
   
-    <p className='montserrat pl-7 max-sm:text-[15px]'>{data.text}</p>
-    <p className='montserrat pl-7 font-extrabold text-[30px] max-sm:text-[15px]'>{data.price}</p>
+</div>
+<p className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center text-left pt-20'>{items.name}</p>
+    <p className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center text-left pt-20'>{items.description}</p>
+    <br />
+
+    <p className='montserrat pl-7 font-extrabold text-[30px] max-sm:pl-16 max-sm:text-[25px]'><span className='montserrat pl-7 font-extrabold text-[24px] max-sm:pl-16 max-sm:text-[15px]'>Rs:</span>:{items.price}</p>
+
 </div> 
-))}
+
   </div>
 
+</Link>
 
-  <ul className="bg-peach shadow-[0_2px_8px_-1px_rgba(6,81,237,0.4)] p-2 space-x-4 w-max flex items-center rounded-lg mx-auto font-[sans-serif] mt-4">
-      <li className="text-gray-400 hover:bg-gray-100 px-4 py-2.5 rounded-lg text-sm font-bold cursor-pointer flex items-center">
+        ))}
+  
+    </div>
     
-       1
+    </div> 
+
+
+{/* shop */}
+
+<br />
+<br />
+
+
+<div>
+<ul className="flex space-x-5 justify-center font-[sans-serif]">
+    
+     
+      <li
+        className="flex items-center justify-center shrink-0 bg-peach  border hover:border-blue-500 cursor-pointer text-base font-bold text-white px-[13px] h-9 rounded-lg">
+        1
       </li>
-      <li>
- 
+      <li
+        className="flex items-center justify-center shrink-0 border bg-[#FFF9E5] cursor-pointer text-base font-bold text-gray-800 px-[13px] h-9 rounded-lg">
         2
       </li>
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" className="fill-gray-400 w-3 -rotate-90 leading-none" viewBox="0 0 24 24">
-          <path fill-rule="evenodd"
-            d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-            clip-rule="evenodd" data-original="#000000"></path>
-        </svg>
+      <li
+        className="flex items-center justify-center shrink-0 border  bg-[#FFF9E5] cursor-pointer text-base font-bold text-gray-800 px-[13px] h-9 rounded-lg">
+        3
       </li>
-      <li className="text-gray-400 hover:bg-gray-100 px-4 py-2.5 rounded-lg text-sm font-bold cursor-pointer flex items-center">
-  
-      3
+      <li
+        className="flex items-center justify-center shrink-0 border  bg-[#FFF9E5] cursor-pointer text-base font-bold text-gray-800 px-[13px] h-9 rounded-lg">
+      Next
       </li>
+     
     </ul>
-    </div>
-  )
+</div>
+
+    </div>)
 }

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { CartProvider } from "./context/CartContext";
 
 import Script from "next/script";
 
@@ -39,11 +40,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-     
+        <CartProvider>
+
+          
         {children}
-        <script async src="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.js"></script>
-        <div hidden id="snipcart" data-config-modal-style="side" data-api-key="ZTdjMTk4YTUtMmM5ZC00NGRlLWFkMzUtZmE0YmU3MmE2YjdiNjM4NzE3NjQzNjI5MTE3MTYz"></div>
-       
+        {/* <script async src="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.js"></script>
+        <div hidden id="snipcart" data-config-modal-style="side" data-api-key="ZTdjMTk4YTUtMmM5ZC00NGRlLWFkMzUtZmE0YmU3MmE2YjdiNjM4NzE3NjQzNjI5MTE3MTYz"></div> */}
+       <Footer/>
+        </CartProvider>
+     
       </body>
     </html>
   );

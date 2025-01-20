@@ -1,9 +1,7 @@
-import { createClient,type ClientConfig } from "next-sanity";
-
-const SanityClient: ClientConfig ={
-projectId:"ipfv0v0i",
+import { createClient, } from "next-sanity";
+export const SanityClient=createClient({
+projectId:process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
 dataset:"production",
 apiVersion:"2025-01-06",
 useCdn:false
-}
-export default createClient(SanityClient)
+})

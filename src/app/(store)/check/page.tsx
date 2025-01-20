@@ -1,10 +1,22 @@
+"use client"
 import Navbar from '@/components/header'
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
-import logo from "../../public/logo.png"
+import logo from "../../../public/logo.png"
 import { IoTime } from "react-icons/io5";
 import Image from 'next/image'
+import { CartContext } from '@/app/context/CartContext';
+
+
+
+
+
 export default function Check() {
+  
+  const {items,add ,dec,qty,totalQuantity,totalPrice,itemQty,remove} :any = useContext(CartContext);
+ 
+    //  const {items,add ,dec,qty,totalQuantity,totalPrice,itemQty,remove} :any = useContext(CartContext);
+  
   return (
     <div>
 
@@ -203,47 +215,45 @@ export default function Check() {
             <div className="px-4 py-8 sm:overflow-auto sm:h-[calc(100vh-60px)]">
               <div className="space-y-4">
 
-<div className='grid grid-cols-2'>
-<div>
-    <h1 className='montserrat text-xl font-bold'>Product</h1>
-    <br />
-
-    <p className='montserrat text-slate-400'>Asgaard sofa <span className='text-black'>1</span></p>
-    <br />
-    <p className='montserrat'>  Subtotal</p>
-    <br />
-    <p className='montserrat'> Total</p>
-   <br />
-   
-<div>
-    <p className='montserrat'>Direct Bank transfer</p>
-    <p className='montserrat text-slate-400'>
-    Lorem ipsum dolor, sit amet consectetur
-    <br />
-     adipisicing elit. Eius placeat commodi fugiat,
-     <br />
-      modraesentimos eveniet ratione vel dolorum omnis blanditiis.
-      </p>
+{items.map((product:any)=>(
+  <div className='grid grid-cols-2'>
+  <div>
+      <h1 className='montserrat text-xl font-bold'>Product</h1>
       <br />
-
-      <div className='items-center flex justify-center'>
-      <button className='montserrat border border-black w-[200px] h-[50px] rounded-xl'>Place order</button>
-      </div>
-</div>
-</div>
-<div>
-    <h1 className='montserrat text-xl font-bold'>Subtotal</h1>
-   <br />
-    <p className='montserrat'>Rs.250,000.00</p>
-    <br />
-    <p className='montserrat'>Rs.250,000.00</p>
-    <br />
-    <p className='montserrat text-[#B88E2F] font-extrabold'>Rs.250,000.00</p>
-</div>
-
-
-
-</div>
+  
+      <p className='montserrat text-slate-400'>{product.name} <span className='text-black'>{totalQuantity}</span></p>
+      <br />
+      <p className='montserrat'>  Subtotal</p>
+      <br />
+      <p className='montserrat'> Total</p>
+     <br />
+     
+  <div>
+      <p className='montserrat'>Direct Bank transfer</p>
+      <p className='montserrat text-slate-400'>
+{product.description}
+        </p>
+        <br />
+  
+        <div className='items-center flex justify-center'>
+        <button className='montserrat border border-black w-[200px] h-[50px] rounded-xl'>Place order</button>
+        </div>
+  </div>
+  </div>
+  <div>
+      <h1 className='montserrat text-xl font-bold'>Subtotal</h1>
+     <br />
+      <p className='montserrat'>{product.price}</p>
+      <br />
+      <p className='montserrat'>{product.totalPrice}</p>
+      <br />
+      <p className='montserrat text-[#B88E2F] font-extrabold'>{product.totalPric}</p>
+  </div>
+  
+  
+  
+  </div>
+))}
                
 
              
@@ -264,4 +274,8 @@ export default function Check() {
   )
 }
 
+
+function useState<T>(arg0: null): [any, any] {
+  throw new Error('Function not implemented.')
+}
 

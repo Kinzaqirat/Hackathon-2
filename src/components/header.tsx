@@ -15,6 +15,7 @@ import { GoHeart } from "react-icons/go";
 import { BsCart } from "react-icons/bs";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import AccountDropDown from "../components/ui/AccountDropDown";
+import SearchBar from "./search";
 
 interface Data{
     name: string,
@@ -68,7 +69,7 @@ export default function Navbar() {
         <MdOutlineAccountCircle />        </div>
     <div
         className=' text-2xl focus-within:bg-transparent focus-within:border-gray-400 rounded-sm px-4 py-2.5 overflow-hidden max-w-52 max-lg:hidden'>
-
+<SearchBar/>
        <IoSearchOutline/>
       </div>
 
@@ -76,11 +77,7 @@ export default function Navbar() {
       <div className='flex items-center sm:space-x-8 space-x-6'>
         <div className="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
 
-          <div className="relative">
-           <Link href={'/'}>< GoHeart className="text-2xl max-sm:text-2xl"/>
-           
-            </Link>
-          </div>
+          
         </div>
 
         <div className="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
@@ -95,7 +92,7 @@ export default function Navbar() {
      
 
         <Sheet >
-        <SheetTrigger className="md:hidden  ">
+        <SheetTrigger className="md:hidden lg:hidden xl:hidden   ">
         <Menu className="text-2xl  bg-white"/>
         </SheetTrigger>
         <SheetContent className=" bg-peach text-black" >

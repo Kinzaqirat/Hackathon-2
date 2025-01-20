@@ -1,42 +1,17 @@
+// "use client"
 import Header from '@/components/header'
 import React from 'react'
 import Image from 'next/image'
-import logo from "../../public/logo.png"
+import logo from "../../../public/logo.png"
+
+
 import Link from 'next/link'
-import chair from "../../public/chair (2).png"
-import chairtable from "../../public/table chair.png"
-import outdoor from "../../public/outdoor.png"
-import  sofa2 from "../../public/break.png"
-import  table1 from "../../public/table1.png"
-import  table2 from "../../public/table2.png"
-import  table3 from "../../public/table3.png"
-import  table4 from "../../public/table4.png"
-import  table5 from "../../public/table5.png"
-import  table6 from "../../public/table6.png"
-import  table7 from "../../public/table7.png"
-import  table8 from "../../public/table7.png"
+import { SanityClient } from '@/sanity/sanity.client'
+import { groq } from 'next-sanity'
 
-export default function ShopPgae() {
-  let Data2 =[
-    {
-    image :chair , text :"Trenton modular sofa_3" , price:"RS. 25,000.00"
-    },
-    {image:chairtable, text :"Granite dining table with dining chair" ,  price:"RS. 25,000.00"},
-    {image:outdoor, text :"Outdoor bar table and stole" ,  price:"RS. 25,000.00"},
-    {image:sofa2, text :" Grain coffee table" ,  price:"RS. 15,000.00"},
-    {image:table1, text :"Kent coffee table" ,  price:"RS. 225,000.00"},
-    {image:table2, text :"Round coffee table color-2" ,  price:"RS. 251,000.00"},
-    {image:table3, text :"Reclaimed teak coffe table" ,  price:"RS. 25,200.00"},
-    {image:table4, text :"granite saqure side table" ,  price:"RS. 258,800.00"},
-    {image:table5, text :"Asgaard" ,  price:"RS. 25o,000.00"},
-    {image:table6, text :"Maya fofa three seater" ,  price:"RS. 115,000.00"},
-    {image:table7, text :"Plain console with teak mirror" ,  price:"RS. 25,000.00"},
-    {image:table8, text :"Outdoor sofa set" ,  price:"RS. 244,000.00"}
-  
-  
-  
-  ]
-
+export default async function ShopPgae() {
+  let Data = await SanityClient.fetch(groq `*[_type=="product"]
+    `)
 
 
 
@@ -111,22 +86,38 @@ export default function ShopPgae() {
      
       </div>
     </div>
+    <div className='grid grid-cols-4 pl-10 py-12 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 '>
+    {Data.map((items:any)=>(
+<Link href={`product/${items.slug.current}`} >
+
+<div className=''>
+
+
+    <div className='w-[300px]'>
+<div className='rounded-xl w-[300px] h-[300px] py-8'>
+<img src={items.imagePath} alt='' className='w-[240px] h-[240px] max-sm:ml-11 rounded-xl '></img>
+  
+</div>
+<p  className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center text-left'>{items.name}</p>
+<br />
+    <p   className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center text-left'>{items.description}</p>
+    <p className='montserrat pl-7 font-extrabold text-[30px] max-sm:pl-16 max-sm:text-[25px]'><span className='montserrat pl-7 font-extrabold text-[24px] max-sm:pl-16 max-sm:text-[15px]'>Rs:</span>:{items.price}</p>
+
+</div> 
+
+  </div>
+
+</Link>
+
+        ))}
+  
     </div>
+    
+    </div> 
 
 
 {/* shop */}
-<div className=' grid grid-cols-4 pl-7 max-sm:grid max-sm:grid-cols-1 '>
 
-{Data2.map((data)=>(
-    <div>
-    <Image src={data.image} alt='' className='w-[240px] h-[240px] max-sm:ml-11'></Image>
-  
-    <p className='montserrat pl-7 max-sm:text-[15px] max-sm:text-center'>{data.text}</p>
-    <p className='montserrat pl-7 font-extrabold text-[30px] max-sm:pl-16 max-sm:text-[25px]'>{data.price}</p>
-    <button>Add to cart</button>
-</div> 
-))}
-  </div>
 <br />
 <br />
 

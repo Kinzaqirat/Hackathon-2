@@ -17,11 +17,7 @@ export default function AccountDropDown() {
   <DropdownMenuTrigger><BsCart className="text-3xl  mt-4 max-sm:text-2xl rounded-full mb-3"/></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>
-       <div className="flex justify-evenly gap-3">
-        <AiOutlineUser className="relative top-1 "/>
-        <h3>Manage my account</h3>
-
-       </div>
+     
     </DropdownMenuLabel>
     <DropdownMenuSeparator />
    
@@ -32,12 +28,7 @@ export default function AccountDropDown() {
         </div>
     </DropdownMenuItem>
    
-    <DropdownMenuItem>
-        <div className="flex justify-evenly gap-3">
-        <FaCheck  className=" relative top-1"/>
-           <Link href={"/check"}> <span>Checkout</span></Link>
-        </div>
-    </DropdownMenuItem>
+
     <DropdownMenuItem>
         <div className="flex justify-evenly gap-3">
             <IoStarOutline className="relative top-1"/>
@@ -45,12 +36,7 @@ export default function AccountDropDown() {
         </div>
     </DropdownMenuItem>
     <DropdownMenuItem>
-    <Link href={"/userDetails"}>
-        <div className="flex justify-evenly gap-3">
-           <RiLogoutBoxLine className="font-bold relative top-1"/>
-            <span>Logout</span>
-        </div>
-        </Link>
+   
     </DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>

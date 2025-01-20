@@ -1,13 +1,23 @@
+"use client"
 import Header from '@/components/header'
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Link from 'next/link'
-import logo from "../../public/logo.png"
+import logo from "../../../public/logo.png"
 import Image from 'next/image'
-import sofa from "../../public/Asgaard sofa 1.png"
+// import sofa from "../../public/Asgaard sofa 1.png"
 import Navbar from '@/components/header'
+// import CartContext
+import { SanityClient } from '@/sanity/sanity.client'
+import { groq } from 'next-sanity'
+import { CartContext } from '@/app/context/CartContext'
+import { MdDelete } from 'react-icons/md'
 
-export default function Chart() {
+
+export default  function Chart() {
+  const {items,add ,dec,qty,totalQuantity,totalPrice,itemQty,remove} :any = useContext(CartContext);
+
+  // const {items,add ,dec,qty,totalQuantity,totalPrice,itemQty,remove} :any = useContext(CartContext);
   return (
     <div>
       <Navbar/>
@@ -84,9 +94,10 @@ export default function Chart() {
 
 {/* more */}
 
-<div className="font-sans max-sm:w-[410px]">
-      <div className="grid lg:grid-cols-3 max-sm:grid max-sm:grid-cols-1">
-        <div className="lg:col-span-2 p-6 bg-white overflow-x-auto">
+   {items.map((product:any)=>(    <div className="grid lg:grid-cols-3 max-sm:grid max-sm:grid-cols-1">
+        <div className="lg:col-span-2 p-6 bg-white overflow-x-auto"
+         key={product._id}
+        >
         
 
           <table className="mt-6 w-full border-collapse divide-y  max-sm:w-[410px] ">
@@ -103,10 +114,12 @@ export default function Chart() {
                 <td className="p-4">
                   <div className="flex items-center gap-4 w-max">
                     <div className="h-32 shrink-0">
-                      <Image src={sofa} alt="" className="w-full h-full object-contain rounded-lg" />
+                      <img
+                      src={product.imagePath} alt="" className="w-full h-full object-contain rounded-lg" />
                     </div>
                     <div>
-                      <p className="text-base font-bold text-gray-800">Asgaard sofa</p>
+                    <p className="text-base font-bold text-gray-800">{product.name}</p>
+                      <p className="text-base font-bold text-gray-800">{product.description}</p>
                      
                     </div>
                   </div>
@@ -115,13 +128,16 @@ export default function Chart() {
                   <div className="flex divide-x border w-max rounded-lg overflow-hidden">
                 
                     <button type="button" className="bg-transparent w-10 h-10 font-semibold text-gray-800 text-base">
-                      1
+                      {qty}
                     </button>
                    
                   </div>
                 </td>
                 <td className="p-4">
-                  <h4 className="text-base font-bold text-gray-800 max-sm:inline-block "> Rs.250,000.00</h4>
+                  <h4 className="text-base font-bold text-gray-800 max-sm:inline-block ">Rs: {product.price}</h4>
+                  <button className="text-red-500 text-xl"  onClick={()=>remove(product)}>
+              <MdDelete />
+            </button>
                 </td>
               </tr>
 
@@ -142,24 +158,31 @@ export default function Chart() {
           <h2 className="text-2xl font-bold montserrat  pb-4 text-center">Cart total</h2>
 
           <ul className="text-gray-800  mt-6 items-center">
-            <li className=" gap-4  py-3 text-center">Subtotal <span className="font-bold text-slate-400">Rs.250,000.00</span></li>
-            <li className=" gap-4  py-3 text-center">Total <span className=" text-yellow-700 font-bold">Rs.250,000.00</span></li>
+            <li className=" gap-4  py-3 text-center">Subtotal <span className="font-bold text-slate-400">{items.reduce(
+              (total: number, product: any) =>
+                total + product.price * product.quantity,
+              0
+            )}</span></li>
+            <li className=" gap-4  py-3 text-center">Total <span className=" text-yellow-700 font-bold">{product.price}</span></li>
            
           </ul>
 
           <div className='flex justify-center'>
-          <button type="button" className="mt-6 px-5 py-2.5 w-[200px] rounded-xl border border-black">Make Payment</button>
+          <Link href={"/check"}><button type="button" className="mt-6 px-5 py-2.5 w-[200px] rounded-xl border border-black">Make Payment</button></Link>
           </div>
           <br />
 
         </div>
       </div>
-    </div>
+    ))}
+    <div className="font-sans max-sm:w-[410px]">
+  
+  
 
 
 <br />
 <br />
-<section className="bg-[#9F9F9F] body-font max-sm:w-[410px] pl-[200px]">
+<section className="bg-[#9F9F9F] body-font max-sm:w-[410px] pl-[200px] max-sm:pl-[40px]">
   <div className="container px-10 py-24 mx-auto ">
     <div className="flex flex-wrap -m-4 text-center max-sm:grid max-sm:grid-cols-1">
       <div className="p-4 sm:w-1/4 w-1/2">
@@ -178,6 +201,9 @@ export default function Chart() {
     </div>
   </div>
 </section>
-    </div>
+ 
+
+</div>
+</div>
   )
 }

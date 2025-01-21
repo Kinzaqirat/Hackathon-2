@@ -166,25 +166,31 @@ export default function Contact() {
 </div>
 <br />
 <br />
-<section className="bg-[#9F9F9F] body-font max-sm:w-[410px]">
-  <div className="container px-10 py-24 mx-auto pl-[200px]">
-    <div className="flex flex-wrap -m-4 text-center max-sm:grid max-sm:grid-cols-1">
-      <div className="p-4 sm:w-1/4 w-1/2">
-        <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900 montserrat max-sm:pl-28">Free delivery</h2>
-        <p className="leading-relaxed  max-sm:pl-28">For all orders above $50</p>
+<section className="bg-[#9F9F9F] body-font">
+  <div className="container px-6 sm:px-10 py-16 sm:py-24 mx-auto">
+    <div className="flex flex-wrap justify-center text-center gap-8 sm:gap-0">
+      <div className="p-4 w-full sm:w-1/3">
+        <h2 className="title-font font-medium text-3xl sm:text-4xl text-gray-900 montserrat">
+          Free delivery
+        </h2>
+        <p className="leading-relaxed text-lg">For all orders above $50</p>
       </div>
-      <div className="p-4 sm:w-1/4 w-1/2">
-        <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900 montserrat  max-sm:pl-28 ">90 days return</h2>
-        <p className="leading-relaxed montserrat  max-sm:pl-28">if goods have problem</p>
+      <div className="p-4 w-full sm:w-1/3">
+        <h2 className="title-font font-medium text-3xl sm:text-4xl text-gray-900 montserrat">
+          90 days return
+        </h2>
+        <p className="leading-relaxed text-lg">If goods have problem</p>
       </div>
-      <div className="p-4 sm:w-1/4 w-1/2">
-        <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900 montserrat  max-sm:pl-28">Secure payment</h2>
-        <p className="leading-relaxed montserrat  max-sm:pl-28">100% secure payment</p>
+      <div className="p-4 w-full sm:w-1/3">
+        <h2 className="title-font font-medium text-3xl sm:text-4xl text-gray-900 montserrat">
+          Secure payment
+        </h2>
+        <p className="leading-relaxed text-lg">100% secure payment</p>
       </div>
-      
     </div>
   </div>
 </section>
+
 <br />
 <br />
 

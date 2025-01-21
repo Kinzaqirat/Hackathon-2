@@ -24,7 +24,7 @@ export const CartProvider= ({children}:any)=>{
     
     const addProduct = (products:any, quantity:number)=>{
         // check that product exits in cart and has same id
-        let checkProduct = items.find((item:any)=>item._id === products._id)
+        let checkProduct = items.find((item:any)=>item._id === products.id)
         // updated cart icon
         setTotalQuantity((pre)=>pre +qty);
         // set total price
@@ -36,7 +36,7 @@ export const CartProvider= ({children}:any)=>{
 if(checkProduct){
 // if this product is exist
 const updatedCart=items.map((CartProduct:any)=>{
-    if(CartProduct._id === products._id){
+    if(CartProduct._id === products.id){
 return{
       ...CartProduct, quantity: CartProduct.quantity + qty
 
@@ -62,9 +62,9 @@ setItems(updatedCart)
     }
 
     const itemQty=(id:any,value:any)=>{
-        let FoundProduct = items.find((item)=>item._id === id)
-        let index=items.findIndex((Product)=>Product._id===id)
-let otherProducts= items.filter((item)=> item._id !==id)
+        let FoundProduct = items.find((item)=>item.id === id)
+        let index=items.findIndex((Product)=>Product.id===id)
+let otherProducts= items.filter((item)=> item.id !==id)
 let UpdatedCart=[...items]
         if(value ==="plus"){
             UpdatedCart[index]={...UpdatedCart[index],quantity:UpdatedCart[index].quantity+1}

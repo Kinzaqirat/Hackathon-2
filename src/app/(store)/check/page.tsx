@@ -223,6 +223,7 @@ export default function Check() {
   
       <p className='montserrat text-slate-400'>{product.name} <span className='text-black'>{totalQuantity}</span></p>
       <br />
+      <img src={product.imagePath} alt="" className='w-[200px] h-[200px]' />
       <p className='montserrat'>  Subtotal</p>
       <br />
       <p className='montserrat'> Total</p>
@@ -247,7 +248,7 @@ export default function Check() {
       <br />
       <p className='montserrat'>{product.totalPrice}</p>
       <br />
-      <p className='montserrat text-[#B88E2F] font-extrabold'>{product.totalPric}</p>
+      <p className='montserrat text-[#B88E2F] font-extrabold'>{product.totalPrice}</p>
   </div>
   
   

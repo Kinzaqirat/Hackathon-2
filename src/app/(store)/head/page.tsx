@@ -19,6 +19,7 @@ import Blog from "@/components/blog";
 import Part5 from "@/components/part5";
 import Detaile from "@/components/ui/detaile";
 import Hero from "@/components/hero";
+import SearchBar from "@/components/search";
 interface Data{
     name: string,
     path: string
@@ -37,18 +38,18 @@ export default function Home2() {
   
   return (
  <div className=" w-[100%]  ">
-     <div className=" bg-[#FBEBB5] max-sm:w-[360px] ">
+      <div className=" bg-[#FBEBB5]   ">
 
 
 
 
      <div>
    <nav className="flex items-center justify-evenly px-6 py-4 bg-peach shadow-md ">
-      {/* Left Section: Logo */}
+      {/* Left Section: Logo 
     
 
-      {/* Middle Section: Links (Hidden on small screens, visible on medium and larger screens) */}
-      <ul className="hidden md:flex space-x-6 text-sm font-medium text-gray-800 pl-7 ">
+       {/* Middle Section: Links (Hidden on small screens, visible on medium and larger screens) */} 
+       <ul className="hidden md:flex space-x-6 text-sm font-medium text-gray-800 pl-7 ">
         <li>
           <a href="/" className="hover:text-gray-600">
             Home
@@ -72,12 +73,12 @@ export default function Home2() {
       </ul>
 
       
-   <div className="flex items-center gap-x-6 gap-y-4 ml-[600px]  max-md:ml-[30px] gap-11 max-sm:[20px] md:ml-[300px]   lg:pl-[700px] lg:pt-0 bg-peach">     <div className="flex text-2xl bg-transparent flex-col items-center justify-center gap-0.5 cursor-pointer">
+   <div className="flex items-center gap-x-6 gap-y-4 ml-[100px] w-full max-md:ml-[30px] gap-11 max-sm:[20px] md:ml-[10px]   lg:pl-[400px] lg:pt-0 bg-peach">     <div className="flex text-2xl bg-transparent flex-col items-center justify-center gap-0.5 cursor-pointer">
         <MdOutlineAccountCircle />        </div>
     <div
-        className=' text-2xl focus-within:bg-transparent focus-within:border-gray-400 rounded-sm px-4 py-2.5 overflow-hidden max-w-52 max-lg:hidden'>
-
-       <IoSearchOutline/>
+       className=' text-2xl focus-within:bg-transparent focus-within:border-gray-400 md:text-xl rounded-sm px-4 py-2.5 overflow-hidden max-w-52 max-lg:hidden'>
+<SearchBar />
+       
       </div>
 
 
@@ -103,7 +104,7 @@ export default function Home2() {
      
 
         <Sheet >
-        <SheetTrigger className="md:hidden  ">
+        <SheetTrigger className="lg:hidden  xl:hidden ">
         <Menu className="text-2xl  bg-peach"/>
         </SheetTrigger>
         <SheetContent className=" bg-peach text-black" >
@@ -126,7 +127,8 @@ export default function Home2() {
     </nav>
   </div>
 
-</div>
+</div> 
+
 
 
 {/* Hero */}
@@ -147,10 +149,10 @@ export default function Home2() {
 <br />
 {/* Third part */}
 <div>
-  <h1 className="montserrat text-center text-[40px] max-sm:text-[20px]">Top picks for You</h1>
+  <h1 className="montserrat text-center text-[40px] max-sm:text-[20px] md:text-[30px]">Top picks for You</h1>
  
 
-  <p className="montserrat text-center text-slate-400 text-[20px] max-sm:text-[15px]">Find a bright ideal to suits your taste with a great suspension, table, floor and table lights</p>
+  <p className="montserrat text-center text-slate-400 text-[20px] max-sm:text-[15px] md:text-[15px]">Find a bright ideal to suits your taste with a great suspension, table, floor and table lights</p>
   <br />
 <Card1/>
 <br />

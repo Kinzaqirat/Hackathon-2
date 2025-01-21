@@ -34,12 +34,13 @@ export default function Navbar() {
 
 ]
   return (
- <div>
-   <nav className="flex items-center justify-evenly
-    px-6 py-4 bg-white shadow-md max-sm:w-[410px] md:w-[910px] lg:w-[100%]">
+    <div className="w-full">
+    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
       {/* Left Section: Logo */}
-    
-
+      <div className="text-2xl font-bold cursor-pointer">
+        <a href="/">Logo</a>
+      </div>
+  
       {/* Middle Section: Links (Hidden on small screens, visible on medium and larger screens) */}
       <ul className="hidden md:flex space-x-6 text-sm font-medium text-gray-800">
         <li>
@@ -63,55 +64,49 @@ export default function Navbar() {
           </a>
         </li>
       </ul>
-
-      
-   <div className="flex items-center gap-x-6 gap-y-4 ml-[600px]  max-md:ml-[40px] max-sm:[20px] max-sm:gap-8 md:ml-[300px]">     <div className="flex text-2xl bg-transparent flex-col items-center justify-center gap-0.5 cursor-pointer">
-        <MdOutlineAccountCircle />        </div>
-    <div
-        className=' text-2xl focus-within:bg-transparent focus-within:border-gray-400 rounded-sm px-4 py-2.5 overflow-hidden max-w-52 max-lg:hidden'>
-<SearchBar/>
-       <IoSearchOutline/>
-      </div>
-
-
-      <div className='flex items-center sm:space-x-8 space-x-6'>
-        <div className="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
-
-          
+  
+      {/* Right Section: Icons and Search */}
+      <div className="flex items-center gap-x-4 md:gap-x-6">
+        <div className="text-2xl cursor-pointer">
+          <MdOutlineAccountCircle />
         </div>
-
-        <div className="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
-   
-          <div className="relative">
-            <AccountDropDown/>
-     
-         
-          </div>
-    
+  
+        {/* Search Bar - Hidden on small screens */}
+        <div className="hidden md:flex items-center focus-within:border-b-gray-200 rounded-sm px-4 py-2.5 max-w-52">
+          <SearchBar />
         </div>
-     
-
-        <Sheet >
-        <SheetTrigger className="md:hidden lg:hidden xl:hidden   ">
-        <Menu className="text-2xl  bg-white"/>
-        </SheetTrigger>
-        <SheetContent className=" bg-peach text-black" >
-          <SheetHeader>
-            <SheetTitle className="mt-5 mx-5 text-3xl hover:underline   font-thin ">Menu Bar</SheetTitle>
-            <ul>
-          {LinksData.map((list)=>(
-            <li className="flex flex-col space-y-6 mt-5 mx-5 text-2xl font-bold hover:text-rose-900 text-pink-700">
-            <Link href={`${list.path}`}>{list.name}</Link></li>
-          ))}
-         
-      </ul>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
-
+  
+        {/* Account Dropdown */}
+        <div className="relative cursor-pointer">
+          <AccountDropDown />
+        </div>
+  
+        {/* Mobile Menu (Visible on small screens) */}
+        <Sheet>
+          <SheetTrigger className="md:hidden">
+            <Menu className="text-2xl bg-white" />
+          </SheetTrigger>
+          <SheetContent className="bg-peach text-black">
+            <SheetHeader>
+              <SheetTitle className="mt-5 mx-5 text-3xl font-thin hover:underline">
+                Menu Bar
+              </SheetTitle>
+              <ul>
+                {LinksData.map((list) => (
+                  <li
+                    key={list.name}
+                    className="flex flex-col space-y-6 mt-5 mx-5 text-2xl font-bold hover:text-rose-900 text-pink-700"
+                  >
+                    <Link href={`${list.path}`}>{list.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
       </div>
-    </div>
     </nav>
   </div>
+  
 
   )}

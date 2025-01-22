@@ -9,17 +9,23 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { GoHeart } from "react-icons/go";
 import { BsCart } from "react-icons/bs";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import AccountDropDown from "../../../components/ui/AccountDropDown";
+import AccountDropDown from "../../components/ui/AccountDropDown";
 import Image from "next/image";
 import seater from "../../../public/seater.png"
 import Second from "@/components/second";
-import Card1 from "../../../components/card1"
+import Card1 from "../../components/card1"
 import Part4 from "@/components/ui/part4";
 import Blog from "@/components/blog";
 import Part5 from "@/components/part5";
 import Detaile from "@/components/ui/detaile";
-import Hero from "@/components/hero";
+
+import  HeroSec  from "@/components/ui/hero";
 import SearchBar from "@/components/search";
+// import HeroSec from "@/components/hero";
+
+import React, { Suspense } from 'react';
+
+// const HeroSec = React.lazy(() => import('@/components/ui/hero'));
 interface Data{
     name: string,
     path: string
@@ -34,7 +40,7 @@ const LinksData:Data[] =[
 ]
 
 
-export default function Home2() {
+export default async function Home2() {
   
   return (
  <div className=" w-[100%]  ">
@@ -132,9 +138,11 @@ export default function Home2() {
 
 
 {/* Hero */}
-
-<Hero/>
-
+<div>
+<Suspense fallback={<div>Loading...</div>}>
+      <HeroSec />
+    </Suspense>
+</div>
 <br />
 <br />
 
@@ -144,7 +152,6 @@ export default function Home2() {
 
 {/* Part second */}
 <Second/>
-
 <br />
 <br />
 {/* Third part */}
